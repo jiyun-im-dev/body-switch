@@ -1,11 +1,11 @@
 package com.centreal.bodyswitch.common.exception.handler;
 
+import com.centreal.bodyswitch.common.exception.BaseException;
+import com.centreal.bodyswitch.common.exception.dto.ValidationError;
+import com.centreal.bodyswitch.common.response.CommonResponse;
+import com.centreal.bodyswitch.common.response.CommonResponses;
+import com.centreal.bodyswitch.common.response.ResponseCode;
 import lombok.extern.slf4j.Slf4j;
-import nbc.nbcsubject.common.exception.BaseException;
-import nbc.nbcsubject.common.exception.dto.ValidationError;
-import nbc.nbcsubject.common.response.CommonResponse;
-import nbc.nbcsubject.common.response.CommonResponses;
-import nbc.nbcsubject.common.response.ResponseCode;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;

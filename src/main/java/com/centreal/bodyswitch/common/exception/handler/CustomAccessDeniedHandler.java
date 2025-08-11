@@ -1,11 +1,11 @@
 package com.centreal.bodyswitch.common.exception.handler;
 
+import com.centreal.bodyswitch.common.response.CommonResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
-import nbc.nbcsubject.common.response.CommonResponse;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.stereotype.Component;
