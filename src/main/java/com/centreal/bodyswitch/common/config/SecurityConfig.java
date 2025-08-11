@@ -34,9 +34,7 @@ public class SecurityConfig {
     private final ObjectMapper objectMapper = new ObjectMapper();
 
     private static final String[] WHITE_LIST = {
-        "/h2-console/**", "/swagger-ui/**", "/v3/api-docs/**", "/event/", "/event/*"
-            "/",
-            "/api/login"
+        "/h2-console/**", "/swagger-ui/**", "/v3/api-docs/**", "/event/", "/event/*", "/", "/api/login"
     };
 
     @Bean
@@ -70,7 +68,7 @@ public class SecurityConfig {
         http.headers(headers -> headers.frameOptions(HeadersConfigurer.FrameOptionsConfig::sameOrigin));
 
         http.formLogin(login -> login
-                .loginProcessingUrl("/login")
+                .loginProcessingUrl("/api/login")
                 .successHandler((request, response, authentication) -> {
                     response.setStatus(HttpServletResponse.SC_OK);
                     response.setContentType("application/json;charset=UTF-8");
