@@ -1,6 +1,8 @@
 package com.centreal.bodyswitch.domain.event.repository;
 
 import com.centreal.bodyswitch.domain.event.constant.EventFilterType;
+import com.centreal.bodyswitch.domain.event.dto.response.FindEventResponse;
+import com.centreal.bodyswitch.domain.event.dto.response.QFindEventResponse;
 import com.centreal.bodyswitch.domain.event.entity.Event;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.impl.JPAQueryFactory;
@@ -40,6 +42,20 @@ public class EventRepositoryImpl implements EventRepositoryCustom{
                 .fetchOne();
 
         return new PageImpl<>(eventList, pageable, total != null ? total : 0L);
+    }
+
+    @Override
+    public FindEventResponse findEvent(Long id) {
+        return queryFactory
+                .select(new QFindEventResponse(
+                        event.title,
+                        event.content,
+                        event.imageUrl,
+                        event.endDate
+                ))
+                .from(event)
+                .where(event.id.eq(id))
+                .fetchOne();
     }
 
     private BooleanExpression filterBy(LocalDate date, EventFilterType filterType) {

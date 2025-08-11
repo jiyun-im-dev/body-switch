@@ -34,7 +34,7 @@ public class SecurityConfig {
     private final ObjectMapper objectMapper = new ObjectMapper();
 
     private static final String[] WHITE_LIST = {
-        "/h2-console/**", "/swagger-ui/**", "/v3/api-docs/**", "/event/"
+        "/h2-console/**", "/swagger-ui/**", "/v3/api-docs/**", "/event/", "/event/*"
     };
 
     @Bean
