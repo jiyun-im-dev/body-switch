@@ -10,6 +10,15 @@ import lombok.Getter;
 public class CommonResponse<T> {
 	private String code;
 	private String message;
+	private final T data;
+
+	public static <T> CommonResponse<T> of(String code, String message, T data) {
+		return CommonResponse.<T>builder()
+				.code(code)
+				.message(message)
+				.data(data)
+				.build();
+	}
 
 	public static <T> CommonResponse<T> of(String status, String message) {
 		return CommonResponse.<T>builder()
