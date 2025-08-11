@@ -35,6 +35,8 @@ public class SecurityConfig {
 
     private static final String[] WHITE_LIST = {
         "/h2-console/**", "/swagger-ui/**", "/v3/api-docs/**", "/event/", "/event/*"
+            "/",
+            "/api/login"
     };
 
     @Bean
