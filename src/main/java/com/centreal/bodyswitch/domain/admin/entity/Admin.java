@@ -16,8 +16,8 @@ public class Admin {
     @Column(name = "admin_id")
     private Long id;
 
-    @Column(name = "login_id", nullable = false)
-    private String loginId;
+    @Column(nullable = false)
+    private String username;
 
     @Column(nullable = false)
     private String password;

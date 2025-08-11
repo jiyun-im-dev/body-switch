@@ -34,7 +34,8 @@ public class SecurityConfig {
     private final ObjectMapper objectMapper = new ObjectMapper();
 
     private static final String[] WHITE_LIST = {
-
+            "/",
+            "/api/login"
     };
 
     @Bean
