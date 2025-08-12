@@ -23,7 +23,7 @@ public class CustomAccessDeniedHandler implements AccessDeniedHandler {
 		AccessDeniedException accessDeniedException) throws IOException, ServletException {
 		response.setStatus(HttpServletResponse.SC_FORBIDDEN);
 
-		CommonResponse<?> errorResponse = CommonResponse.of("ACCESS_DENIED", "관리자 권한이 필요한 요청입니다. 접근 권한이 없습니다.");
+		CommonResponse<?> errorResponse = CommonResponse.of("ACCESS_DENIED", "접근 권한이 없습니다.");
 
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
