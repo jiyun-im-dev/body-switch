@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "event")
@@ -36,7 +37,7 @@ public class Event {
     private LocalDate endDate;
 
     @Column(name = "image_url")
-    private String imageUrl;
+    private List<String> imageUrl;
 
     public void increaseViewCount() {
         this.viewCount++;

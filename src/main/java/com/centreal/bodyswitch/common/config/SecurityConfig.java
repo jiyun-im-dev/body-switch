@@ -34,7 +34,7 @@ public class SecurityConfig {
     private final ObjectMapper objectMapper = new ObjectMapper();
 
     private static final String[] WHITE_LIST = {
-
+        "/h2-console/**", "/swagger-ui/**", "/v3/api-docs/**", "/event/", "/event/*", "/", "/api/login"
     };
 
     @Bean
@@ -51,6 +51,7 @@ public class SecurityConfig {
                 csrf -> csrf
                         .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
                         .csrfTokenRequestHandler(new CsrfTokenRequestAttributeHandler())
+                        .ignoringRequestMatchers("/h2-console/**")
         );
 
         http.formLogin(AbstractHttpConfigurer::disable);
