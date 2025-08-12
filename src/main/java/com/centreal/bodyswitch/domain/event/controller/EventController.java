@@ -1,7 +1,7 @@
 package com.centreal.bodyswitch.domain.event.controller;
 
 import com.centreal.bodyswitch.domain.event.constant.EventFilterType;
-import com.centreal.bodyswitch.domain.event.dto.response.EventListResponse;
+import com.centreal.bodyswitch.domain.event.dto.response.FindEventListResponse;
 import com.centreal.bodyswitch.domain.event.dto.response.FindEventResponse;
 import com.centreal.bodyswitch.domain.event.service.EventService;
 import lombok.RequiredArgsConstructor;
@@ -19,13 +19,13 @@ public class EventController {
     private final EventService eventService;
 
     @GetMapping("/")
-    public ResponseEntity<EventListResponse> findEventList(
+    public ResponseEntity<FindEventListResponse> findEventList(
             @RequestParam("date") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date,
             @RequestParam(name = "filter", defaultValue = "UPCOMING") EventFilterType filterType,
             @RequestParam(name = "page", defaultValue = "0") int page,
             @RequestParam(name = "size", defaultValue = "10") int size
     ){
-        EventListResponse response = eventService.findEventList(date, filterType, page, size);
+        FindEventListResponse response = eventService.findEventList(date, filterType, page, size);
 
         return ResponseEntity.ok(response);
     }
